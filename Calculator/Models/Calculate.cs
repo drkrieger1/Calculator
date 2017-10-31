@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Calculator.Modles
+namespace Calc.Modles
 {
-    public class Calculator
+    public class Calculate
     {
-        public double NumA { get; set; }
-        public double NumB { get; set; }
-        public double Result { get; set; }
+        static double NumA { get; set; }
+        static double NumB { get; set; }
+        static double Result { get; set; }
 
         //Addition
-        static double Add(string numA, string numB)
+        public double Add(string numA, string numB)
         {
-            double a = Convert.ToDouble(numA);
-            double b = Convert.ToDouble(numB);
+            double a = double.Parse(numA);
+            double b = double.Parse(numB);
             return a + b;
         }
 
         //Subtraction
-        static double Sub(string numA, string numB)
+        public double Sub(string numA, string numB)
         {
             double a = Convert.ToDouble(numA);
             double b = Convert.ToDouble(numB);
@@ -28,14 +28,14 @@ namespace Calculator.Modles
         }
 
         //Devision
-        static double Div(string numA, string numB)
+        public double Div(string numA, string numB)
         {
             double a = Convert.ToDouble(numA);
             double b = Convert.ToDouble(numB);
             return a / b;
         }
         //Multiplication
-        static double Mult(string numA, string numB)
+        public double Mult(string numA, string numB)
         {
             double a = Convert.ToDouble(numA);
             double b = Convert.ToDouble(numB);
