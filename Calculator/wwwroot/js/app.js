@@ -4,11 +4,8 @@
 var A ="5";
 var B = "6"; 
 var opt = "+";
+var answer;
 
-var obj = {};
-obj.numA = "5";
-obj.numB = "6";
-obj.op = "+";
 
 var button = document.getElementById('send');
 
@@ -23,7 +20,7 @@ function Payload() {
         dataType: 'text',
         success: OnSuccess,
         error: OnError
-    });
+    }).then(Answer);
     function OnSuccess() {
         console.log('ajax payload succeeded');
     }
@@ -32,4 +29,10 @@ function Payload() {
     }
 }
 
+function Answer() {
+    $.get("/Home/Return", function(payload){
+        console.log(`answer payload returned: ${payload}`);
+        answer = parseInt(payload);
+    });
+}
 

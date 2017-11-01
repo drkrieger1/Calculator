@@ -7,38 +7,35 @@ namespace Calc.Modles
 {
     public class Calculate
     {
-        static double NumA { get; set; }
-        static double NumB { get; set; }
-        static double Result { get; set; }
-
         //Addition
-        public double Add(string numA, string numB)
+        public decimal Add(string numA, string numB)
         {
-            double a = double.Parse(numA);
-            double b = double.Parse(numB);
-            return a + b;
+            decimal a = Convert.ToDecimal(numA);
+            decimal b = Convert.ToDecimal(numB);
+            decimal answer = a + b;
+            return answer;
         }
 
         //Subtraction
-        public double Sub(string numA, string numB)
+        public decimal Sub(string numA, string numB)
         {
-            double a = Convert.ToDouble(numA);
-            double b = Convert.ToDouble(numB);
+            decimal a = Convert.ToDecimal(numA);
+            decimal b = Convert.ToDecimal(numB);
             return a - b;
         }
 
         //Devision
-        public double Div(string numA, string numB)
+        public decimal Div(string numA, string numB)
         {
-            double a = Convert.ToDouble(numA);
-            double b = Convert.ToDouble(numB);
+            decimal a = Convert.ToDecimal(numA);
+            decimal b = Convert.ToDecimal(numB);
             return a / b;
         }
         //Multiplication
-        public double Mult(string numA, string numB)
+        public decimal Mult(string numA, string numB)
         {
-            double a = Convert.ToDouble(numA);
-            double b = Convert.ToDouble(numB);
+            decimal a = Convert.ToDecimal(numA);
+            decimal b = Convert.ToDecimal(numB);
             return a * b;
         }
 

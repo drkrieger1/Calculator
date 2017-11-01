@@ -10,7 +10,6 @@ namespace Calculator.Controllers
 {
     public class HomeController : Controller
     {
-        private double result;
         
         public IActionResult Index()
         {
@@ -19,22 +18,29 @@ namespace Calculator.Controllers
         [HttpPost]
         public void Calc(string numA, string numB, string op)
         {
+            
             Calculate calculate = new Calculate();
             switch (op)
             {
                 case "+":
-                    result = calculate.Add(numA, numB);
+                    TempData["answer"] = calculate.Add(numA, numB);
                     break;
                 case "-":
-                    result = calculate.Sub(numA, numB);
+                    TempData["answer"] = calculate.Sub(numA, numB);
                     break;
                 case "*":
-                    result = calculate.Add(numA, numB);
+                    TempData["answer"] = calculate.Add(numA, numB);
                     break;
                 case "/":
-                    result = calculate.Add(numA, numB);
+                    TempData["answer"] = calculate.Add(numA, numB);
                     break;
-            }
+            }      
+        }
+        [HttpGet]
+        public string Return()
+        {
+            string payload = TempData["answer"].ToString();
+            return payload;
         }
     }
 }
