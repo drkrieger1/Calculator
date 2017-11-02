@@ -1,13 +1,12 @@
 ﻿body {
-    width: 75%;
-    min-width: 414px;
-    margin: 0 auto;
+   width: 100%;
 }
 
 #calc {
     width: 100%;
     max-width: 414px;
-    margin: 0 auto;
+    height: 100%;
+    
     background-color: gray;
 }
 
@@ -25,9 +24,9 @@
     }
 
 .Row button {
-    width: 2.06em;
-    height: 2em;
-    font-size: 3em;
+    width: 23%;
+    height: 3.1em;
+    font-size: 2.5em;
     background-color: orange;
     border: none;
 }
