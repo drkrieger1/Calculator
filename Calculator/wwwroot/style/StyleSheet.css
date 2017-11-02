@@ -1,0 +1,38 @@
+﻿body {
+   width: 100%;
+}
+
+#calc {
+    width: 100%;
+    max-width: 414px;
+    height: 100%;
+    
+    background-color: gray;
+}
+
+#OutPut {
+    width: 100%;
+    text-align: right;
+    font-size: 5em;
+    background-color: #30302f;
+    margin-bottom: 0.05em;
+    color: white;
+}
+
+    #OutPut h1 {
+        margin-right: 0.06em;
+    }
+
+.Row button {
+    width: 23%;
+    height: 3.1em;
+    font-size: 2.5em;
+    background-color: orange;
+    border: none;
+}
+
+.Row {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.2em;
+}

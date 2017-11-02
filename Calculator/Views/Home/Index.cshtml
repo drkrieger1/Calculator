@@ -1,0 +1,54 @@
+﻿@model Calculator.Models.CalcViewModel
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+
+    <title>Calculators</title>
+    <meta name="description" content="Calculator" />
+    <meta name="author" content="Erik Plyushko" />
+
+    <link rel="stylesheet" href="~/style/Reset.css"/>
+    <link rel="stylesheet" href="~/style/StyleSheet.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+        <div id="calc">
+            <div id="OutPut"><h1>OutPut</h1></div>
+            <div id="Numbers">
+                <div class="Row">
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>+</button>
+                </div>
+                <div class="Row">
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>-</button>
+                </div>
+                <div class="Row">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>*</button>
+                </div>
+                <div class="Row">
+                    <button>0</button>
+                    <button>.</button>
+                    <button>=</button>
+                    <button>/</button>
+                </div>
+            </div>
+
+        </div>
+
+            <button id="send">send ajax</button>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="~/js/app.js"></script>
+</body>
+
+</html>
