@@ -9,7 +9,7 @@ var answer;
 var button = document.getElementById('send');
 var clear = document.getElementById('clear');
 
-button.addEventListener('click', Payload);
+//button.addEventListener('click', Payload);
 clear.addEventListener('click', Clear);
 
 function Payload() {
@@ -18,7 +18,7 @@ function Payload() {
     $.ajax({
         type: 'POST',
         url: '/Home/Calc',
-        data: { numA: A, numB: B, op: opt },
+        data: { numA: A },
         dataType: 'text',
         success: OnSuccess,
         error: OnError
@@ -35,7 +35,6 @@ function Payload() {
 function Answer() {
     $.get("/Home/Return", function (payload) {
         console.log(`answer payload returned: ${payload}`);
-        answer = payload;
         render(payload);
     });
 }
@@ -70,26 +69,31 @@ function AddToB(num) {
 function ButtonEvent() {
     
     $(".bt").click(function () {
-        //if operator is not present fill Add to A
+        
         var input = $(this).attr('value');
-        console.log(input);
-        if (input === '/' || input === '*' || input === '-' || input === '+' && input !== '='){
-            opt = input;
+
+        if (input == '=') {
+            Payload();
         }
-        if (opt === ''){
-           console.log(input);
-           AddToA(input);
-        }else {
-            AddToB(input); 
-        }    
+
+        if (input !== '=') {
+            AddToA(input);
+        }
+        //if (input === '/' || input === '*' || input === '-' || input === '+' && input !== '='){
+        //    opt = input;
+        //}
+        //if (opt === ''){
+        //   console.log(input);
+        //   AddToA(input);
+        //}else {
+        //    AddToB(input); 
+        //}    
 
     });
 }
     function Clear() {
         $('#Print').val('');
         A = '';
-        B = '';
-        opt = '';
         render('0');
     }
 
