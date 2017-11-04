@@ -19,7 +19,7 @@
     color: white;
 }
 
-    #OutPut h1 {
+#OutPut h1 {
         margin-right: 0.06em;
     }
 
@@ -35,4 +35,8 @@
     width: 100%;
     text-align: center;
     margin-bottom: 0.2em;
+}
+
+.bt:active{
+    background-color:#808080;
 }
