@@ -1,24 +1,19 @@
 ﻿"use strict";
-//ajax test
 
 var A = '';
-var B = ''; 
-var opt = '';
-var answer;
 
-var button = document.getElementById('send');
+//Vanilla JS event listener setup and execution for the clear button.
 var clear = document.getElementById('clear');
-
-//button.addEventListener('click', Payload);
 clear.addEventListener('click', Clear);
 
+//Using JQuery to send a Post ajax call to the HomeController to calculate the users input. 
 function Payload() {
-    console.log('launching payload');
+    console.log(`launching payload: ${A}`);
     
     $.ajax({
         type: 'POST',
         url: '/Home/Calc',
-        data: { numA: A },
+        data: { input: A },
         dataType: 'text',
         success: OnSuccess,
         error: OnError
@@ -29,9 +24,8 @@ function Payload() {
     function OnError() {
         console.log(error);
     }
-    
 }
-
+//Ajax Get function to return the answer from the back controller.
 function Answer() {
     $.get("/Home/Return", function (payload) {
         console.log(`answer payload returned: ${payload}`);
@@ -39,11 +33,13 @@ function Answer() {
     });
 }
 
+//Render function for the calculator screen
 function render(input) {
     $('#Print').val('');
     $('#Print').text(input);
 }
 
+//This function creates the string equasion that will be sent to the controller.
 function AddToA(num) {
     if (A === '') {
         A = num;
@@ -55,46 +51,29 @@ function AddToA(num) {
     }
 }
 
-function AddToB(num) {
-    if (B === '') {
-        B = num;
-        render(A);
-    } else {
-        let Bcopy = B;
-        B = Bcopy + num;
-        render(B);
-    }
-}
-
+//This function is a JQuery event handler that grabs the buttons value and passes it to the equasion string builder.
 function ButtonEvent() {
     
     $(".bt").click(function () {
         
         var input = $(this).attr('value');
 
-        if (input == '=') {
+        if (input === '=') {
             Payload();
         }
 
         if (input !== '=') {
             AddToA(input);
         }
-        //if (input === '/' || input === '*' || input === '-' || input === '+' && input !== '='){
-        //    opt = input;
-        //}
-        //if (opt === ''){
-        //   console.log(input);
-        //   AddToA(input);
-        //}else {
-        //    AddToB(input); 
-        //}    
-
     });
 }
-    function Clear() {
-        $('#Print').val('');
-        A = '';
-        render('0');
-    }
 
+//Clear calculator screen and equasion string.
+function Clear() {
+  $('#Print').val('');
+  A = '';
+  render('0');
+}
+
+//Activate button event handler when page loads. 
 $(document).ready(ButtonEvent);
